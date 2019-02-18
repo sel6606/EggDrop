@@ -12,7 +12,11 @@ public class UseAccelerometer : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Input.gyro.enabled = true;
+        //Use the Gyroscope if a device has it, since rotation works better than the Accelerometer
+        if (SystemInfo.supportsGyroscope)
+        {
+            Input.gyro.enabled = true;
+        }
 	}
 	
 	// Update is called once per frame
@@ -28,11 +32,17 @@ public class UseAccelerometer : MonoBehaviour {
         //FOR MOBILE
         for (int i = 0; i < obstacles.Count; i++)
         {
-            //Accelerometer
-            //obstacles[i].transform.Rotate(0.0f, Input.acceleration.y, 0.0f);
+            //Use Gyroscope over Accelerometer if it is supported
+            if (Input.gyro.enabled)
+            {
+                obstacles[i].transform.Rotate(0.0f, Input.gyro.rotationRateUnbiased.z, 0.0f);
+            }
 
-            //Gyroscope
-            obstacles[i].transform.Rotate(0.0f, Input.gyro.rotationRateUnbiased.z, 0.0f);
+            //Default to Accelerometer
+            else
+            {
+                obstacles[i].transform.Rotate(0.0f, Input.acceleration.y, 0.0f);
+            }
         }
 
         #if UNITY_EDITOR
