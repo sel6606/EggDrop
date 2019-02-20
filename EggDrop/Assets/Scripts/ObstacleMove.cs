@@ -28,4 +28,16 @@ public class ObstacleMove : MonoBehaviour {
         }
         gameObject.GetComponent<Renderer>().material.color = temp;
 	}
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(collision.gameObject);
+        }
+        else
+        {
+            Debug.Log("YHOOO)");
+        }
+    }
 }
