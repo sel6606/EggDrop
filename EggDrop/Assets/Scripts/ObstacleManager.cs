@@ -32,6 +32,9 @@ public class ObstacleManager : MonoBehaviour
     {
         float spawnRotation = Random.Range(0, 359);
         GameObject newObstacle = Instantiate(branchPrefab, Vector3.zero, Quaternion.AngleAxis(spawnRotation, Vector3.up), transform);
+
+        //The model needs to be rotated by 90 degrees to spawn sideways
+        newObstacle.transform.Rotate(Vector3.forward, 90.0f);
     }
 
     public void RotateWorld(float degreesToRotate)
