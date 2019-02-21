@@ -65,7 +65,7 @@ public class GameInfo : MonoBehaviour
         //We will not be using this for the final build
         if (gameOver)
         {
-            Invoke("RestartScene", 2.0f);
+            Invoke("ReloadMainMenu", 2.0f);
             gameOver = false;
         }
     }
@@ -74,7 +74,7 @@ public class GameInfo : MonoBehaviour
     /// Temporary method to reload the scene.
     /// We probably won't use this for the final build.
     /// </summary>
-    private void RestartScene()
+    private void ReloadMainMenu()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
