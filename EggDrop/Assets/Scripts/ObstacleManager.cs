@@ -32,6 +32,9 @@ public class ObstacleManager : MonoBehaviour
     {
         float spawnRotation = Random.Range(0, 359);
         GameObject newObstacle = Instantiate(branchPrefab, Vector3.zero, Quaternion.AngleAxis(spawnRotation, Vector3.up), transform);
+
+        //Need to rotate the branches by 90 degrees to have them turned correctly
+        newObstacle.transform.Rotate(Vector3.forward, 90.0f);
     }
 
     public void RotateWorld(float degreesToRotate)
