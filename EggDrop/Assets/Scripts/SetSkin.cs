@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class used to set the correct texture and particle selected from the shop.
+/// </summary>
 public class SetSkin : MonoBehaviour {
 
 	// Use this for initialization
@@ -14,37 +17,31 @@ public class SetSkin : MonoBehaviour {
 		
 	}
 
+    /// <summary>
+    /// Sets the texture according to the one selected in the shop.
+    /// </summary>
     public void SetChosenTexture()
     {
-        
+        //Set the texture according to the one selected
+        //GameInfo.instance.CurrTexture =
+
+        SetAppropriateParticle(GameInfo.instance.CurrTexture);
     }
 
+    /// <summary>
+    /// Sets the particle color according to the texture
+    /// </summary>
+    /// <param name="texture">the texure of the egg</param>
     private void SetAppropriateParticle(Texture texture)
     {
         switch (texture.name)
         {
-            case "cape-texture":
-                GameInfo.instance.ParticleColor = Color.HSVToRGB(0.32f, 0.69f, 0.90f);
-
-                break;
-            case "fancy-texture":
-                GameInfo.instance.ParticleColor = Color.HSVToRGB(0.32f, 0.69f, 0.90f);
-
-                break;
-            case "kiwi-texture":
-                GameInfo.instance.ParticleColor = Color.HSVToRGB(0.32f, 0.69f, 0.90f);
-
-                break;
-            case "wings-texture":
-                GameInfo.instance.ParticleColor = Color.HSVToRGB(0.32f, 0.69f, 0.90f);
-
-                break;
             case "yolk-texture":
-                GameInfo.instance.ParticleColor = Color.HSVToRGB(2.71f, 0.81f, 0.17f);
+                GameInfo.instance.ParticleColor = new Color32(26, 8, 43, 255);
 
                 break;
             default:
-                GameInfo.instance.ParticleColor = Color.HSVToRGB(0.32f, 0.69f, 0.90f);
+                GameInfo.instance.ParticleColor = new Color32(247, 230, 211, 255);
 
                 break;
         }

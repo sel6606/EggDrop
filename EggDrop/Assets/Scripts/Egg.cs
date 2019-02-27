@@ -10,6 +10,8 @@ public class Egg : MonoBehaviour {
     public float torque;
 
     private Rigidbody rb;
+    private ParticleSystem pSystem;
+
     private bool isHit;
 
     public bool IsHit
@@ -21,6 +23,7 @@ public class Egg : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rb = gameObject.GetComponent<Rigidbody>();
+        pSystem = gameObject.GetComponent<ParticleSystem>();
 
         ChangeActiveTexture();
         ChangeParticleColor();
@@ -28,9 +31,10 @@ public class Egg : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (isHit)
+        if (isHit && pSystem.isStopped)
         {
-            
+            GameInfo.instance.GameOver = true;
+            GameInfo.instance.ReloadMainMenu();
         }
 	}
 
@@ -41,6 +45,22 @@ public class Egg : MonoBehaviour {
         {
             ApplyRotationalForce();
         }
+    }
+
+    /// <summary>
+    /// Explodes the egg when it has hit an obstacle.
+    /// </summary>
+    public void Explode()
+    {
+        isHit = true;
+        pSystem.Play();
+
+        //Make sure the egg is invisible
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+
+        //Make sure the egg is no longer rotating (so the particles won't rotate too)
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
     }
 
     /// <summary>

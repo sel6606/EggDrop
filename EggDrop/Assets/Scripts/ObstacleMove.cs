@@ -34,8 +34,10 @@ public class ObstacleMove : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(collision.gameObject);
-            GameInfo.instance.GameOver = true;
+            if (!collision.gameObject.GetComponent<Egg>().IsHit)
+            {
+                collision.gameObject.GetComponent<Egg>().Explode();
+            }
         }
     }
 }

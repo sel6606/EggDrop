@@ -81,20 +81,14 @@ public class GameInfo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Temporary automatic restart
-        //We will not be using this for the final build
-        if (gameOver)
-        {
-            Invoke("ReloadMainMenu", 2.0f);
-            gameOver = false;
-        }
+        
     }
 
     /// <summary>
     /// Temporary method to reload the scene.
     /// We probably won't use this for the final build.
     /// </summary>
-    private void ReloadMainMenu()
+    public void ReloadMainMenu()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
