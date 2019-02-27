@@ -12,6 +12,7 @@ public class GameInfo : MonoBehaviour
     public static GameInfo instance;
 
     public Texture currTexture;
+    public Color particleColor;
 
     private bool gameStart = false;
     private bool gameOver = false;
@@ -41,6 +42,12 @@ public class GameInfo : MonoBehaviour
         set { currTexture = value; }
     }
 
+    public Color ParticleColor
+    {
+        get { return particleColor; }
+        set { particleColor = value; }
+    }
+
     void Awake()
     {
         //If there is not already a GameInfo object, set it to this
@@ -68,6 +75,7 @@ public class GameInfo : MonoBehaviour
         gameOver = instance.gameOver;
         paused = instance.paused;
         currTexture = instance.currTexture;
+        particleColor = instance.particleColor;
     }
 
     // Update is called once per frame
