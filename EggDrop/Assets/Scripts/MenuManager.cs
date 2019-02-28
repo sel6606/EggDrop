@@ -18,8 +18,12 @@ public class MenuManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         score = 0;
-        scoreText = scoreTextHolder.GetComponent<TextMeshProUGUI>();
-        scoreText2 = scoreTextHolder2.GetComponent<TextMeshProUGUI>();
+
+        if (!SceneManager.GetActiveScene().name.Equals("MainMenu"))
+        {
+            scoreText = scoreTextHolder.GetComponent<TextMeshProUGUI>();
+            scoreText2 = scoreTextHolder2.GetComponent<TextMeshProUGUI>();
+        }
     }
 	
 	// Update is called once per frame
@@ -29,8 +33,10 @@ public class MenuManager : MonoBehaviour {
             togglePause();
         }
 
-        scoreText.SetText("You fell: {0} meters!", score);
-        scoreText2.SetText("Distance: {0}m", score);
+        if (scoreText2 != null)
+        {
+            scoreText2.SetText("Distance: {0}m", score);
+        }
     }
 
     public void loadGame()
@@ -77,5 +83,7 @@ public class MenuManager : MonoBehaviour {
         {
             gameOverPanel.SetActive(false);
         }
+
+        scoreText.SetText("You fell: {0} meters!", score);
     }
 }

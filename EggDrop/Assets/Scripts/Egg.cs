@@ -8,6 +8,7 @@ using UnityEngine;
 public class Egg : MonoBehaviour {
 
     public float torque;
+    public MenuManager menuManager;
 
     private Rigidbody rb;
     private ParticleSystem pSystem;
@@ -31,10 +32,10 @@ public class Egg : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (isHit && pSystem.isStopped && !GameInfo.instance.Paused)
+        if (isHit && pSystem.isStopped && !GameInfo.instance.Paused && !GameInfo.instance.GameOver)
         {
             GameInfo.instance.GameOver = true;
-            GameInfo.instance.ReloadMainMenu();
+            menuManager.toggleGameOver();
         }
 
         if (GameInfo.instance.Paused)
