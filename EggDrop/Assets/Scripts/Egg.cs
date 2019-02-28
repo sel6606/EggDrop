@@ -31,19 +31,40 @@ public class Egg : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (isHit && pSystem.isStopped)
+        if (isHit && pSystem.isStopped && !GameInfo.instance.Paused)
         {
             GameInfo.instance.GameOver = true;
             GameInfo.instance.ReloadMainMenu();
+        }
+
+        if (GameInfo.instance.Paused)
+        {
+            if (pSystem.isPlaying)
+            {
+                pSystem.Pause();
+            }
+        }
+        else
+        {
+            if (pSystem.isPaused)
+            {
+                pSystem.Play();
+                pSystem.Stop();
+            }
         }
 	}
 
     // Update for physics calls
     void FixedUpdate()
     {
-        if (!isHit)
+        if (!isHit && !GameInfo.instance.Paused)
         {
             ApplyRotationalForce();
+        }
+        else if (GameInfo.instance.Paused)
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
         }
     }
 

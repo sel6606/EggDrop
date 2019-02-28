@@ -26,7 +26,10 @@ public class UseAccelerometer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        RotateObstacles();
+        if (!GameInfo.instance.Paused)
+        {
+            RotateObstacles();
+        }
 	}
 
     /// <summary>

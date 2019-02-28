@@ -20,7 +20,10 @@ public class Flip : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        ChangeRotation();
+        if (!GameInfo.instance.Paused)
+        {
+            ChangeRotation();
+        }
 	}
 
     /// <summary>

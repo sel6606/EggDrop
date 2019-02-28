@@ -16,7 +16,10 @@ public class Wiggle : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        PerformWiggle();
+        if (!GameInfo.instance.Paused)
+        {
+            PerformWiggle();
+        }
 	}
 
     /// <summary>

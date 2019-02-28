@@ -16,7 +16,10 @@ public class RotateAround : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        RotateObstacle();	
+        if (!GameInfo.instance.Paused)
+        {
+            RotateObstacle();
+        }	
 	}
 
     /// <summary>

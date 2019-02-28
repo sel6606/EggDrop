@@ -23,7 +23,10 @@ public class RotateHalfway : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        RotateObstacle();
+        if (!GameInfo.instance.Paused)
+        {
+            RotateObstacle();
+        }
 	}
 
     /// <summary>
