@@ -3,23 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Script to constantly rotate the obstacle back and forth 180 degrees.
+/// Script to constantly rotate the obstacle back and forth.
 /// </summary>
 public class RotateHalfway : MonoBehaviour {
 
     public float rotationSpeed;
+    public float targetRot;
 
-    private Quaternion startRot;
-    private Quaternion targetRot;
-
-    public float time;
-    private bool movingToTarget;
+    private float rot;
+    private float totalRot;
+    private bool rotatingForward;
 
 	// Use this for initialization
 	void Start () {
-        startRot = transform.rotation;
-        targetRot = startRot * Quaternion.Euler(180.0f, 0.0f, 0.0f);
-        movingToTarget = true;
+        rot = 0.0f;
+        totalRot = 0.0f;
+        rotatingForward = true;
 	}
 	
 	// Update is called once per frame
@@ -28,28 +27,38 @@ public class RotateHalfway : MonoBehaviour {
 	}
 
     /// <summary>
-    /// Rotates obstacle back and forth by 180 degrees from its start rotation.
+    /// Rotates obstacle back and forth between its target rotation.
     /// </summary>
     private void RotateObstacle()
     {
-        time += Time.deltaTime;
+        rot = Time.deltaTime * rotationSpeed;
 
-        Mathf.Clamp(time, 0.0f, 1.0f);
-
-        if (movingToTarget)
+        //Apply the rotation
+        if (rotatingForward)
         {
-            Quaternion.Slerp(startRot, targetRot, Time.deltaTime);
+            totalRot += rot;
+            transform.Rotate(Vector3.right, rot);
         }
         else
         {
-            Quaternion.Slerp(targetRot, startRot, Time.deltaTime);
+            totalRot -= rot;
+            transform.Rotate(Vector3.right, -rot);
         }
 
-        if (time >= 1.0f)
+        //Clamp
+        if (totalRot >= targetRot)
         {
-            time = 0.0f;
-            movingToTarget = !movingToTarget;
-            transform.rotation = targetRot;
+            totalRot = targetRot;
+        }
+        else if (totalRot <= 0.0f)
+        {
+            totalRot = 0.0f;
+        }
+
+        //Reverse the rotation
+        if (totalRot >= targetRot || totalRot <= 0.0f)
+        {
+            rotatingForward = !rotatingForward;
         }
     }
 }
