@@ -8,7 +8,6 @@ using UnityEngine;
 public class UseAccelerometer : MonoBehaviour {
 
     public List<GameObject> obstacles;
-    public float rotationSpeed;
 
     private Quaternion calibration;
 
@@ -27,7 +26,10 @@ public class UseAccelerometer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        RotateObstacles();
+        if (!GameInfo.instance.Paused)
+        {
+            RotateObstacles();
+        }
 	}
 
     /// <summary>
@@ -84,11 +86,11 @@ public class UseAccelerometer : MonoBehaviour {
         {
             if (Input.GetKey(KeyCode.RightArrow))
             {
-                obstacles[i].transform.Rotate(0.0f, -1.0f * Time.deltaTime * rotationSpeed, 0.0f);
+                obstacles[i].transform.Rotate(0.0f, -1.0f * Time.deltaTime * 80.0f, 0.0f);
             }
             else if (Input.GetKey(KeyCode.LeftArrow))
             {
-                obstacles[i].transform.Rotate(0.0f, 1.0f * Time.deltaTime * rotationSpeed, 0.0f);
+                obstacles[i].transform.Rotate(0.0f, 1.0f * Time.deltaTime * 80.0f, 0.0f);
             }
         }
         #endif

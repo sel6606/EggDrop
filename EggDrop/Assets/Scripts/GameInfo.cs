@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Script to keep track of various game information
+/// Script to keep track of various game information required between multiple scenes
 /// </summary>
 public class GameInfo : MonoBehaviour
 {
 
     //Represents the game info that is stored across all scenes
     public static GameInfo instance;
+
+    public Texture currTexture;
+    public Color particleColor;
 
     private bool gameStart = false;
     private bool gameOver = false;
@@ -33,6 +36,18 @@ public class GameInfo : MonoBehaviour
         set { paused = value; }
     }
 
+    public Texture CurrTexture
+    {
+        get { return currTexture; }
+        set { currTexture = value; }
+    }
+
+    public Color ParticleColor
+    {
+        get { return particleColor; }
+        set { particleColor = value; }
+    }
+
     void Awake()
     {
         //If there is not already a GameInfo object, set it to this
@@ -40,6 +55,9 @@ public class GameInfo : MonoBehaviour
         {
             //Make sure we keep running when clicking off the screen
             Application.runInBackground = true;
+
+            //Object this is attached to will be preserved between scenes
+            DontDestroyOnLoad(gameObject);
 
             instance = this;
         }
@@ -56,25 +74,21 @@ public class GameInfo : MonoBehaviour
         gameStart = instance.gameStart;
         gameOver = instance.gameOver;
         paused = instance.paused;
+        currTexture = instance.currTexture;
+        particleColor = instance.particleColor;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Temporary automatic restart
-        //We will not be using this for the final build
-        if (gameOver)
-        {
-            Invoke("ReloadMainMenu", 2.0f);
-            gameOver = false;
-        }
+
     }
 
     /// <summary>
     /// Temporary method to reload the scene.
     /// We probably won't use this for the final build.
     /// </summary>
-    private void ReloadMainMenu()
+    public void ReloadMainMenu()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
