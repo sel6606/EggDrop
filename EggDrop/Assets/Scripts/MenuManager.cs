@@ -43,15 +43,15 @@ public class MenuManager : MonoBehaviour {
 
     public void loadGame()
     {
+        GameInfo.instance.GameOver = false;
         GameInfo.instance.ResetDistance();
         SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
     }
 
     public void loadMenu()
     {
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
-        GameInfo.instance.GameOver = false;
         GameInfo.instance.Paused = false;
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
     public void toggleHowTo()
