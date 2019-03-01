@@ -90,7 +90,7 @@ public class Egg : MonoBehaviour {
     /// </summary>
     private void ChangeActiveTexture()
     {
-        gameObject.GetComponent<Renderer>().material.mainTexture = GameInfo.instance.CurrTexture;
+        gameObject.GetComponent<Renderer>().material.mainTexture = GameInfo.instance.Textures[GameInfo.instance.CurrTexture];
     }
 
     /// <summary>

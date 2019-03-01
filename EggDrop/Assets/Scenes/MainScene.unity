@@ -1987,7 +1987,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72bce2b841361ab408fc0ba8839ff0dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currTexture: {fileID: 2800000, guid: b94851a85fa738c4ebe802a4c2408a8f, type: 3}
+  textures:
+  - {fileID: 2800000, guid: b94851a85fa738c4ebe802a4c2408a8f, type: 3}
+  - {fileID: 2800000, guid: c38bddb7401fbe642a325a734982cc7c, type: 3}
+  - {fileID: 2800000, guid: ae1fa79e47164db4d8bfcd9dd3241dfd, type: 3}
+  - {fileID: 2800000, guid: ef1b45327f1822a42933faeab7335430, type: 3}
+  - {fileID: 2800000, guid: 7ef2443c42cd6f1469ec6a43b6baa0c0, type: 3}
+  currTexture: 0
   particleColor: {r: 0.96862745, g: 0.9019608, b: 0.827451, a: 1}
   moveSpeed: 7
 --- !u!4 &1512419674
