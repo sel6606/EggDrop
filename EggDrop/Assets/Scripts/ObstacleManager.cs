@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObstacleManager : MonoBehaviour
 {
-    public GameObject branchPrefab;
+    public GameObject[] branchPrefabs;
     public float spawnRate;
     public GameObject ball;
 
@@ -31,7 +31,12 @@ public class ObstacleManager : MonoBehaviour
     public void SpawnObstacle()
     {
         float spawnRotation = Random.Range(0, 359);
-        GameObject newObstacle = Instantiate(branchPrefab, Vector3.zero, Quaternion.AngleAxis(spawnRotation, Vector3.up), transform);
+        int obstacleSeed = Random.Range(0, branchPrefabs.Length + 5);
+        if(obstacleSeed >= branchPrefabs.Length)
+        {
+            obstacleSeed = 0;
+        }
+        GameObject newObstacle = Instantiate(branchPrefabs[obstacleSeed], Vector3.zero, Quaternion.AngleAxis(spawnRotation, Vector3.up), transform);
 
         //Need to rotate the branches by 90 degrees to have them turned correctly
         newObstacle.transform.Rotate(Vector3.forward, 90.0f);

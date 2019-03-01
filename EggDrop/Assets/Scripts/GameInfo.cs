@@ -13,10 +13,15 @@ public class GameInfo : MonoBehaviour
 
     public Texture currTexture;
     public Color particleColor;
+    public float moveSpeed;
 
     private bool gameStart = false;
     private bool gameOver = false;
     private bool paused = false;
+
+    private float currentTime = 0;
+    private float initialMoveSpeed;
+    private float distanceFallen;
 
     public bool GameStart
     {
@@ -48,6 +53,17 @@ public class GameInfo : MonoBehaviour
         set { particleColor = value; }
     }
 
+    public float MoveSpeed
+    {
+        get { return moveSpeed; }
+        set { moveSpeed = value; }
+    }
+
+    public float DistanceFallen
+    {
+        get { return distanceFallen; }
+    }
+
     void Awake()
     {
         //If there is not already a GameInfo object, set it to this
@@ -76,12 +92,18 @@ public class GameInfo : MonoBehaviour
         paused = instance.paused;
         currTexture = instance.currTexture;
         particleColor = instance.particleColor;
+        moveSpeed = instance.moveSpeed;
+        initialMoveSpeed = moveSpeed;
+        distanceFallen = instance.distanceFallen;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if(!paused && !gameOver)
+        {
+            distanceFallen += (moveSpeed * Time.deltaTime);
+        }
     }
 
     /// <summary>
@@ -91,6 +113,13 @@ public class GameInfo : MonoBehaviour
     public void ReloadMainMenu()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+
+    public void ResetDistance()
+    {
+        currentTime = 0;
+        moveSpeed = initialMoveSpeed;
+        distanceFallen = 0;
     }
 }
 

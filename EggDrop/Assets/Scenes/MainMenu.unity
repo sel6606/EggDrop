@@ -1461,6 +1461,48 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1298999023}
   m_CullTransparentMesh: 0
+--- !u!1 &1314365971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1314365973}
+  - component: {fileID: 1314365972}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1314365972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1314365971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bce2b841361ab408fc0ba8839ff0dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currTexture: {fileID: 2800000, guid: b94851a85fa738c4ebe802a4c2408a8f, type: 3}
+  particleColor: {r: 0.96862745, g: 0.9019608, b: 0.827451, a: 1}
+--- !u!4 &1314365973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1314365971}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1342773087
 GameObject:
   m_ObjectHideFlags: 0
@@ -2620,6 +2662,11 @@ MonoBehaviour:
   howToPanel: {fileID: 1511463770}
   pausePanel: {fileID: 336819076}
   gameOverPanel: {fileID: 116998832}
+  scoreTextHolder: {fileID: 0}
+  scoreText: {fileID: 0}
+  scoreTextHolder2: {fileID: 0}
+  scoreText2: {fileID: 0}
+  score: 0
 --- !u!4 &1830926525
 Transform:
   m_ObjectHideFlags: 0

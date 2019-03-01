@@ -27,7 +27,8 @@ public class MenuManager : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		if (Input.GetKeyDown(KeyCode.Escape))
         {
             togglePause();
@@ -35,18 +36,22 @@ public class MenuManager : MonoBehaviour {
 
         if (scoreText2 != null)
         {
+            score = GameInfo.instance.DistanceFallen;
             scoreText2.SetText("Distance: {0}m", score);
         }
     }
 
     public void loadGame()
     {
+        GameInfo.instance.ResetDistance();
         SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
     }
 
     public void loadMenu()
     {
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        GameInfo.instance.GameOver = false;
+        GameInfo.instance.Paused = false;
     }
 
     public void toggleHowTo()
@@ -63,6 +68,7 @@ public class MenuManager : MonoBehaviour {
 
     public void togglePause()
     {
+        GameInfo.instance.Paused = !GameInfo.instance.Paused;
         if (!pausePanel.activeInHierarchy)
         {
             pausePanel.SetActive(true);

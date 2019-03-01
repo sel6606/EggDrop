@@ -15,19 +15,22 @@ public class ObstacleMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        gameObject.transform.transform.localPosition += new Vector3(0, moveSpeed * Time.deltaTime, 0);
-
-
-        float distance = Vector3.Distance(transform.position, Camera.main.transform.position) - 0.5f;
-
-        Color temp = gameObject.GetComponent<MeshRenderer>().material.color;
-        temp.a = Mathf.Clamp01(1.0f - (1.0f / distance));
-
-        if(temp.a == 0)
+        if (!GameInfo.instance.Paused)
         {
-            Destroy(gameObject);
+            gameObject.transform.transform.localPosition += new Vector3(0, moveSpeed * Time.deltaTime, 0);
+
+
+            float distance = Vector3.Distance(transform.position, Camera.main.transform.position);
+
+            //Color temp = gameObject.GetComponent<MeshRenderer>().material.color;
+            //temp.a = Mathf.Clamp01(1.0f - (1.0f / distance));
+
+            if (distance <= 0.5)
+            {
+                Destroy(gameObject);
+            }
+            //gameObject.GetComponent<Renderer>().material.color = temp;
         }
-        gameObject.GetComponent<Renderer>().material.color = temp;
 	}
 
     private void OnTriggerEnter(Collider collision)
@@ -36,6 +39,7 @@ public class ObstacleMove : MonoBehaviour {
         {
             if (!collision.gameObject.GetComponent<Egg>().IsHit)
             {
+                GameInfo.instance.MoveSpeed = 0;
                 collision.gameObject.GetComponent<Egg>().Explode();
             }
         }
