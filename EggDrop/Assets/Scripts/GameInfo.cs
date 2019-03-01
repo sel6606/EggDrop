@@ -97,6 +97,7 @@ public class GameInfo : MonoBehaviour
         gameStart = instance.gameStart;
         gameOver = instance.gameOver;
         paused = instance.paused;
+        textures = instance.textures;
         currTexture = instance.currTexture;
         particleColor = instance.particleColor;
         moveSpeed = instance.moveSpeed;
