@@ -1993,6 +1993,9 @@ MonoBehaviour:
   - {fileID: 2800000, guid: ae1fa79e47164db4d8bfcd9dd3241dfd, type: 3}
   - {fileID: 2800000, guid: ef1b45327f1822a42933faeab7335430, type: 3}
   - {fileID: 2800000, guid: 7ef2443c42cd6f1469ec6a43b6baa0c0, type: 3}
+  - {fileID: 2800000, guid: 0f6bc96bed5ca984b97c3b170e121f19, type: 3}
+  - {fileID: 2800000, guid: 3106e3220eda8b04888741a4c3cd7c6f, type: 3}
+  - {fileID: 2800000, guid: 4ed6c3af3cda70d41a2794d1c2643a0f, type: 3}
   currTexture: 0
   particleColor: {r: 0.96862745, g: 0.9019608, b: 0.827451, a: 1}
   moveSpeed: 7

@@ -39,6 +39,14 @@ public class SetSkin : MonoBehaviour {
                 GameInfo.instance.ParticleColor = new Color32(26, 8, 43, 255);
 
                 break;
+            case "chocolate-egg":
+                GameInfo.instance.ParticleColor = new Color32(96, 57, 19, 255);
+
+                break;
+            case "painted-egg":
+                GameInfo.instance.ParticleColor = new Color32(244, 154, 193, 255);
+
+                break;
             default:
                 GameInfo.instance.ParticleColor = new Color32(247, 230, 211, 255);
 
