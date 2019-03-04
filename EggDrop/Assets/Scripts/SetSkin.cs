@@ -20,12 +20,11 @@ public class SetSkin : MonoBehaviour {
     /// <summary>
     /// Sets the texture according to the one selected in the shop.
     /// </summary>
-    public void SetChosenTexture()
+    public void SetChosenTexture(int index)
     {
-        //Set the texture according to the one selected
-        //GameInfo.instance.CurrTexture =
+        GameInfo.instance.CurrTexture = index;
 
-        SetAppropriateParticle(GameInfo.instance.CurrTexture);
+        SetAppropriateParticle(GameInfo.instance.Textures[index]);
     }
 
     /// <summary>
@@ -38,6 +37,14 @@ public class SetSkin : MonoBehaviour {
         {
             case "yolk-texture":
                 GameInfo.instance.ParticleColor = new Color32(26, 8, 43, 255);
+
+                break;
+            case "chocolate-egg":
+                GameInfo.instance.ParticleColor = new Color32(96, 57, 19, 255);
+
+                break;
+            case "painted-egg":
+                GameInfo.instance.ParticleColor = new Color32(244, 154, 193, 255);
 
                 break;
             default:

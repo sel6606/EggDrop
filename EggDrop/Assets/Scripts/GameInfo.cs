@@ -11,7 +11,8 @@ public class GameInfo : MonoBehaviour
     //Represents the game info that is stored across all scenes
     public static GameInfo instance;
 
-    public Texture currTexture;
+    public Texture[] textures;
+    public int currTexture;
     public Color particleColor;
     public float moveSpeed;
 
@@ -41,7 +42,13 @@ public class GameInfo : MonoBehaviour
         set { paused = value; }
     }
 
-    public Texture CurrTexture
+    public Texture[] Textures
+    {
+        get { return textures; }
+        set { textures = value; }
+    }
+
+    public int CurrTexture
     {
         get { return currTexture; }
         set { currTexture = value; }
@@ -90,6 +97,7 @@ public class GameInfo : MonoBehaviour
         gameStart = instance.gameStart;
         gameOver = instance.gameOver;
         paused = instance.paused;
+        textures = instance.textures;
         currTexture = instance.currTexture;
         particleColor = instance.particleColor;
         moveSpeed = instance.moveSpeed;
