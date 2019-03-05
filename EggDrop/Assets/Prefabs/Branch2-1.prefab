@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23005457525681196}
   - component: {fileID: 114479788756173710}
   - component: {fileID: 65360068231981192}
+  - component: {fileID: 114913858462981926}
   m_Layer: 0
   m_Name: Branch2-1
   m_TagString: Branch2
@@ -58,7 +59,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 0e58388fb50ead14995c39be4616b551, type: 3}
+  - {fileID: 2100000, guid: de731ae7a6d7e16478de01ba90e9aeed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,3 +110,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
+--- !u!114 &114913858462981926
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1506971967348782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1068de1b370aaca4891368dc5d557183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeStartDistance: 4
+  fadeCompleteDistance: 1
+  transformToCheck: {fileID: 4340666622664756}
+  transparent: {fileID: 2100000, guid: 7997b26604126aa47986aca37039d9c1, type: 2}
