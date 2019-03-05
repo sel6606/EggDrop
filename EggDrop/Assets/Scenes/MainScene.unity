@@ -1736,7 +1736,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   branchPrefabs:
   - {fileID: 1506971967348782, guid: c43a17fdca2cedf48a11fbb4412a3093, type: 2}
-  - {fileID: 1350015643894690, guid: 5cd48eb6aef877a4ca80e8c282cfe5b9, type: 2}
+  - {fileID: 1595646754409220, guid: 22a639b91ed1b994cb013f50dfbb4ddb, type: 2}
+  - {fileID: 1920910520279418, guid: d7bb7c8be9d8b5e4da7f75b8e1f94c03, type: 2}
+  - {fileID: 1374715302542920, guid: df32fb2b2a0c7ab41b53c98c92d383f4, type: 2}
   spawnRate: 0.5
   ball: {fileID: 2095699604}
 --- !u!114 &1247030210
