@@ -38,8 +38,15 @@ public class ObstacleManager : MonoBehaviour
         }
         GameObject newObstacle = Instantiate(branchPrefabs[obstacleSeed], Vector3.zero, Quaternion.AngleAxis(spawnRotation, Vector3.up), transform);
 
-        //Need to rotate the branches by 90 degrees to have them turned correctly
-        newObstacle.transform.Rotate(Vector3.forward, 90.0f);
+        //Need to rotate the branches to have them look appropriate in-game
+        if (newObstacle.CompareTag("Branch1"))
+        {
+            newObstacle.transform.Rotate(Vector3.right, 60.0f);
+        }
+        else if (newObstacle.CompareTag("Branch2"))
+        {
+            newObstacle.transform.Rotate(Vector3.right, 90.0f);
+        }
     }
 
     public void RotateWorld(float degreesToRotate)

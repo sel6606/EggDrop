@@ -20,12 +20,11 @@ public class SetSkin : MonoBehaviour {
     /// <summary>
     /// Sets the texture according to the one selected in the shop.
     /// </summary>
-    public void SetChosenTexture()
+    public void SetChosenTexture(int index)
     {
-        //Set the texture according to the one selected
-        //GameInfo.instance.CurrTexture =
+        GameInfo.instance.CurrTexture = index;
 
-        SetAppropriateParticle(GameInfo.instance.CurrTexture);
+        SetAppropriateParticle(GameInfo.instance.Textures[index]);
     }
 
     /// <summary>
