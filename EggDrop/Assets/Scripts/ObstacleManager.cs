@@ -30,10 +30,45 @@ public class ObstacleManager : MonoBehaviour
     public void SpawnObstacle()
     {
         float spawnRotation = Random.Range(0, 359);
-        int obstacleSeed = Random.Range(0, branchPrefabs.Length + 5);
-        if(obstacleSeed >= branchPrefabs.Length)
+        //int obstacleSeed = Random.Range(0, branchPrefabs.Length + 5);
+        //if(obstacleSeed >= branchPrefabs.Length)
+        //{
+        //    obstacleSeed = 0;
+        //}
+        int obstacleSeed = 0;
+        float rand = Random.Range(0.0f, 1.0f);
+
+        if (rand <= 0.3f)
         {
             obstacleSeed = 0;
+        }
+        else if (rand <= 0.6f)
+        {
+            obstacleSeed = 1;
+        }
+        else if (rand <= 0.7f)
+        {
+            obstacleSeed = 2;
+        }
+        else if (rand <= 0.8f)
+        {
+            obstacleSeed = 3;
+        }
+        else if (rand <= 0.85f)
+        {
+            obstacleSeed = 4;
+        }
+        else if (rand <= 0.9f)
+        {
+            obstacleSeed = 5;
+        }
+        else if (rand <= 0.95f)
+        {
+            obstacleSeed = 6;
+        }
+        else if (rand <= 1.0f)
+        {
+            obstacleSeed = 7;
         }
 
         GameObject newObstacle = Instantiate(branchPrefabs[obstacleSeed], Vector3.zero, Quaternion.AngleAxis(spawnRotation, Vector3.up), transform);
