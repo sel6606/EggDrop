@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class ObstacleMove : MonoBehaviour {
 
-    public float moveSpeed;
-
 	// Use this for initialization
 	void Start ()
     {
@@ -17,7 +15,7 @@ public class ObstacleMove : MonoBehaviour {
     {
         if (!GameInfo.instance.Paused)
         {
-            gameObject.transform.transform.localPosition += new Vector3(0, moveSpeed * Time.deltaTime, 0);
+            gameObject.transform.transform.localPosition += new Vector3(0, GameInfo.instance.MoveSpeed * Time.deltaTime, 0);
 
 
             float distance = Vector3.Distance(transform.position, Camera.main.transform.position);

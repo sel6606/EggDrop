@@ -1743,7 +1743,6 @@ MonoBehaviour:
   - {fileID: 1920910520279418, guid: d7bb7c8be9d8b5e4da7f75b8e1f94c03, type: 2}
   - {fileID: 1107025993782256, guid: 6451ec5abf288c74cbf9af960c2a32d5, type: 2}
   - {fileID: 1374715302542920, guid: df32fb2b2a0c7ab41b53c98c92d383f4, type: 2}
-  spawnRate: 0.5
   ball: {fileID: 2095699604}
 --- !u!114 &1247030210
 MonoBehaviour:
@@ -2074,6 +2073,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1512419674}
   - component: {fileID: 1512419673}
+  - component: {fileID: 1512419675}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2101,6 +2101,7 @@ MonoBehaviour:
   currTexture: 0
   particleColor: {r: 0.96862745, g: 0.9019608, b: 0.827451, a: 1}
   moveSpeed: 7
+  spawnRate: 0.5
 --- !u!4 &1512419674
 Transform:
   m_ObjectHideFlags: 0
@@ -2114,6 +2115,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1512419675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1512419672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c6fe0073b28e2e4ba9fa69debead8ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 13
+  minSpawnRate: 0.05
+  interval: 7
+  speedMultiplier: 1.1
+  spawnRateMultiplier: 0.8
 --- !u!1 &1634882865
 GameObject:
   m_ObjectHideFlags: 0

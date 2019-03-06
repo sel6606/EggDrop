@@ -5,7 +5,6 @@ using UnityEngine;
 public class ObstacleManager : MonoBehaviour
 {
     public GameObject[] branchPrefabs;
-    public float spawnRate;
     public GameObject ball;
 
     private float timer;
@@ -13,7 +12,7 @@ public class ObstacleManager : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        timer = spawnRate;
+        timer = GameInfo.instance.SpawnRate;
 	}
 	
 	// Update is called once per frame
@@ -23,7 +22,7 @@ public class ObstacleManager : MonoBehaviour
 
         if (timer <= 0)
         {
-            timer = spawnRate;
+            timer = GameInfo.instance.SpawnRate;
             SpawnObstacle();
         }
 	}
@@ -36,6 +35,7 @@ public class ObstacleManager : MonoBehaviour
         {
             obstacleSeed = 0;
         }
+
         GameObject newObstacle = Instantiate(branchPrefabs[obstacleSeed], Vector3.zero, Quaternion.AngleAxis(spawnRotation, Vector3.up), transform);
 
         //Need to rotate the branches to have them look appropriate in-game
