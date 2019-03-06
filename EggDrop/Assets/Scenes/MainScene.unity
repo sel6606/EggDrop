@@ -1653,6 +1653,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacles:
   - {fileID: 1247030207}
+  gyroSpeed: 80
+  accelSpeed: 120
 --- !u!1 &1280317106
 GameObject:
   m_ObjectHideFlags: 0
