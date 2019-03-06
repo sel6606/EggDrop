@@ -647,6 +647,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: c9fd14ce4bf314b4a9cf12befc932a7c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a18ced281ef299040af33777fff9b355, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9fd14ce4bf314b4a9cf12befc932a7c, type: 3}
   m_IsPrefabAsset: 0
@@ -1739,6 +1743,8 @@ MonoBehaviour:
   - {fileID: 1350015643894690, guid: 5cd48eb6aef877a4ca80e8c282cfe5b9, type: 2}
   spawnRate: 0.5
   ball: {fileID: 2095699604}
+  border: {fileID: 2100000, guid: a18ced281ef299040af33777fff9b355, type: 2}
+  borderSpeed: -0.175
 --- !u!114 &1247030210
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,8 +7,13 @@ public class ObstacleManager : MonoBehaviour
     public GameObject[] branchPrefabs;
     public float spawnRate;
     public GameObject ball;
+    public Material border;
 
     private float timer;
+    private float currentObstacleSpeed = 7.0f;
+    public float borderSpeed = 0.175f;
+
+    private const float speedConversion = -0.175f / 7.0f;
 
 	// Use this for initialization
 	void Start ()
@@ -26,7 +31,13 @@ public class ObstacleManager : MonoBehaviour
             timer = spawnRate;
             SpawnObstacle();
         }
-	}
+
+        borderSpeed = currentObstacleSpeed * speedConversion;
+
+        Vector2 offset = new Vector2(0, borderSpeed * Time.time);
+
+        border.mainTextureOffset = offset;
+    }
 
     public void SpawnObstacle()
     {
@@ -47,6 +58,8 @@ public class ObstacleManager : MonoBehaviour
         {
             newObstacle.transform.Rotate(Vector3.right, 90.0f);
         }
+
+        currentObstacleSpeed = newObstacle.GetComponent<ObstacleMove>().moveSpeed;
     }
 
     public void RotateWorld(float degreesToRotate)
