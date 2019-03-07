@@ -8,6 +8,8 @@ using UnityEngine;
 public class UseAccelerometer : MonoBehaviour {
 
     public List<GameObject> obstacles;
+    public float gyroSpeed;
+    public float accelSpeed;
 
     private Quaternion calibration;
 
@@ -69,14 +71,14 @@ public class UseAccelerometer : MonoBehaviour {
             //Use Gyroscope over Accelerometer if it is supported
             if (Input.gyro.enabled)
             {
-                obstacles[i].transform.Rotate(0.0f, Input.gyro.rotationRateUnbiased.z, 0.0f);
+                obstacles[i].transform.Rotate(0.0f, Input.gyro.rotationRateUnbiased.z * Time.deltaTime * gyroSpeed, 0.0f);
             }
 
             //Default to Accelerometer
             else
             {
                 Vector3 calibratedAcceleration = AdjustedMovement(Input.acceleration);
-                obstacles[i].transform.Rotate(0.0f, calibratedAcceleration.x, 0.0f);
+                obstacles[i].transform.Rotate(0.0f, calibratedAcceleration.x * Time.deltaTime * accelSpeed, 0.0f);
             }
         }
 

@@ -15,6 +15,7 @@ public class GameInfo : MonoBehaviour
     public int currTexture;
     public Color particleColor;
     public float moveSpeed;
+    public float spawnRate;
 
     private bool gameStart = false;
     private bool gameOver = false;
@@ -22,6 +23,7 @@ public class GameInfo : MonoBehaviour
 
     private float currentTime = 0;
     private float initialMoveSpeed;
+    private float initialSpawnRate;
     private float distanceFallen;
 
     public bool GameStart
@@ -66,6 +68,12 @@ public class GameInfo : MonoBehaviour
         set { moveSpeed = value; }
     }
 
+    public float SpawnRate
+    {
+        get { return spawnRate; }
+        set { spawnRate = value; }
+    }
+
     public float DistanceFallen
     {
         get { return distanceFallen; }
@@ -101,7 +109,9 @@ public class GameInfo : MonoBehaviour
         currTexture = instance.currTexture;
         particleColor = instance.particleColor;
         moveSpeed = instance.moveSpeed;
+        spawnRate = instance.spawnRate;
         initialMoveSpeed = moveSpeed;
+        initialSpawnRate = spawnRate;
         distanceFallen = instance.distanceFallen;
     }
 
@@ -127,6 +137,7 @@ public class GameInfo : MonoBehaviour
     {
         currentTime = 0;
         moveSpeed = initialMoveSpeed;
+        spawnRate = initialSpawnRate;
         distanceFallen = 0;
     }
 }
