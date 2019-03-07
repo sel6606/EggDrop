@@ -67,6 +67,10 @@ public class MenuManager : MonoBehaviour {
         }
         else
         {
+            if (howToPanel.activeInHierarchy)
+            {
+                howToPanel.SetActive(false);
+            }
             pausePanel.SetActive(false);
         }
     }
