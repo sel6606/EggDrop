@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Branch1
   - Branch2
+  - MultiBranch
   layers:
   - Default
   - TransparentFX
