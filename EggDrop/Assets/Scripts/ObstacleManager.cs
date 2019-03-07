@@ -94,7 +94,7 @@ public class ObstacleManager : MonoBehaviour
             newObstacle.transform.Rotate(Vector3.right, 90.0f);
         }
 
-        currentObstacleSpeed = newObstacle.GetComponent<ObstacleMove>().moveSpeed;
+        currentObstacleSpeed = GameInfo.instance.MoveSpeed;
     }
 
     public void RotateWorld(float degreesToRotate)
