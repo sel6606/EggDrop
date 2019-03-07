@@ -32,7 +32,7 @@ public class ObstacleManager : MonoBehaviour
                 SpawnObstacle();
             }
 
-            borderSpeed = currentObstacleSpeed * speedConversion;
+            borderSpeed = GameInfo.instance.MoveSpeed * speedConversion;
 
             Vector2 offset = new Vector2(0, borderSpeed * Time.time);
 
