@@ -23,19 +23,21 @@ public class ObstacleManager : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        timer -= Time.deltaTime;
-
-        if (timer <= 0)
+        if (!GameInfo.instance.GameOver && !GameInfo.instance.Paused)
         {
-            timer = GameInfo.instance.SpawnRate;
-            SpawnObstacle();
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                timer = GameInfo.instance.SpawnRate;
+                SpawnObstacle();
+            }
+
+            borderSpeed = currentObstacleSpeed * speedConversion;
+
+            Vector2 offset = new Vector2(0, borderSpeed * Time.time);
+
+            border.mainTextureOffset = offset;
         }
-
-        borderSpeed = currentObstacleSpeed * speedConversion;
-
-        Vector2 offset = new Vector2(0, borderSpeed * Time.time);
-
-        border.mainTextureOffset = offset;
     }
 
     public void SpawnObstacle()
